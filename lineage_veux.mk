@@ -13,7 +13,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/veux/device.mk)
 
 # Inherit some common Matrixx stuff.
-$(call inherit-product, aosp/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Matrixx 
+MATRIXX_BUILD_TYPE := Official
+MATRIXX_MAINTAINER := AswinOP
+MATRIXX_CHIPSET := SM6375
+MATRIXX_BATTERY := 5000mAh
+MATRIXX_DISPLAY := 1080X2400
+
+# Gapps
+WITH_GMS := true
 
 
 # AOSP Recovery
@@ -21,6 +31,12 @@ TARGET_USES_AOSP_RECOVERY := true
 
 # BOOT_ANIMATION
 TARGET_BOOT_ANIMATION_RES := 1080
+
+# Nuke AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
+#Blur effect
+TARGET_ENABLE_BLUR := true	
 
 # Device identifier
 PRODUCT_NAME := lineage_veux
